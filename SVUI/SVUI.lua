@@ -139,3 +139,6 @@ function SVUI_TRANSFER_WIZARD()
 	
 	SVUI_TransferWizard:Show()
 end
+
+_G.SlashCmdList["SVUISVTRANSFER"] = SVUI_TRANSFER_WIZARD;
+_G.SLASH_SVUISVTRANSFER1 = "/svtransfer"
