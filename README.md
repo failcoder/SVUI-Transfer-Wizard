@@ -15,7 +15,7 @@ First be sure that all of the following folders are DELETED from your AddOns dir
 
 Next add THIS folder (also named "SVUI") to the AddOns directory.
 
-After that you can then go to *Curse or *WowInterface to download and install the latest version.
+After that you can then go to **Curse** or **WowInterface** to download and install the latest version.
 *(if new version is available, ie.. NOT the version with the word "Classic" in the title)*
 
 Now simply be sure that all addons are enabled from the login screen and once you are in-game
