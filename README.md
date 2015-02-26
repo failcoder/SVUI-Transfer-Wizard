@@ -20,8 +20,9 @@ After that you can then go to **Curse** or **WowInterface** to download and inst
 *(if new version is available, ie.. NOT the version with the word "Classic" in the title)*
 
 Now simply be sure that all addons are enabled from the login screen and once you are in-game
-the transfer wizard frame will appear and allow you to transfer your old files. 
+the transfer wizard frame will appear and allow you to transfer your old files.
 
 ## NOTES: 
 * Keep in mind that this tool will ONLY RUN ONCE PER CHARACTER! 
 * When you have completed the transfer on a character, you will not see the transfer tool again while on that character.
+* If you need to run it again use the command "/svtransfer"
