@@ -1,0 +1,9 @@
+## Interface: 60100
+## Author: Munglunch
+## Version: 1.0.0
+## Title: |cffFF9900SVUI Transfer Wizard|r
+## Notes: SuperVillain UI [|cff9911FFTransfer Wizard|r].
+## RequiredDeps: SVUI_!Core
+## SavedVariablesPerCharacter: SVUI_Profile, SVUI_Cache
+
+SVUI.lua
