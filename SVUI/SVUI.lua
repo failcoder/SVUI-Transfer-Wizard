@@ -18,7 +18,7 @@ local string 	= _G.string;
 local table     = _G.table;
 local format = string.format;
 local tcopy = table.copy;
-
+local SOURCE_KEY = 1;
 local TRANSFER_MAP = {
 	["general"] = "general",
 	["screen"] = "screen",
@@ -41,7 +41,6 @@ local TRANSFER_MAP = {
 local function GetGlobalData(file)
 	local DATA = _G[file];
 	if(not file or (file and not file.STORED)) then return end
-    local SOURCE_KEY = GetSpecialization()
     return DATA.STORED[SOURCE_KEY]
 end
 
@@ -68,20 +67,25 @@ local TransferButton_OnClick = function(self)
 
 	local SVUILib = Librarian("Registry");
 
-	local private = GetGlobalData("SVUI_Profile")
+	if(SVUI_Profile and SVUI_Profile.SAFEDATA and SVUI_Profile.SAFEDATA.dualSpecEnabled) then
+		SOURCE_KEY = GetSpecialization()
+	end
+
+	local data = rawget(SV.db, "data");
+	local private = GetGlobalData("SVUI_Profile");
 	if(private) then
 		for k, v in pairs(private) do
 			local link = TRANSFER_MAP[k]
-			if(link and SV.db[link]) then
-				tablecopy(SV.db[link], v)
+			if(link and data[link]) then
+				tablecopy(data[link], v)
 			end
 		end
 	end
 
 	local cache = GetGlobalData("SVUI_Cache")
-	if(cache and cache.Anchors and SV.db.LAYOUT) then
+	if(cache and cache.Anchors and data.LAYOUT) then
 		for k, v in pairs(cache.Anchors) do
-			SV.db.LAYOUT[k] = v
+			data.LAYOUT[k] = v
 		end
 	end
 
@@ -93,7 +97,7 @@ local TransferButton_OnClick = function(self)
     end
 end
 
-function SVUI_TRANSFER_WIZARD()
+_G.SVUI_TRANSFER_WIZARD = function()
 	if not SVUI_TransferWizard then 
 		local frame = CreateFrame("Button", "SVUI_TransferWizard", UIParent)
 		frame:SetSize(500, 180)
