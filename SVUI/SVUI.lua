@@ -89,6 +89,13 @@ local TransferButton_OnClick = function(self)
 		end
 	end
 
+	local filters = GetGlobalData("SVUI_Filters")
+	if(filters and data.Filters) then
+		for k, v in pairs(filters) do
+			data.Filters[k] = v
+		end
+	end
+
 	print("Transfer Wizard Complete.")
 	SVUI_TransferWizard:Hide()
 	SVUILib:SaveSafeData("transfer_wizard_used", true);
